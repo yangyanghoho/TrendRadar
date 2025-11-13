@@ -3944,6 +3944,7 @@ def send_to_ntfy(
                 data=batch_content.encode("utf-8"),
                 proxies=proxies,
                 timeout=30,
+                verify='config/yang.pem'
             )
 
             if response.status_code == 200:
@@ -3965,6 +3966,7 @@ def send_to_ntfy(
                     data=batch_content.encode("utf-8"),
                     proxies=proxies,
                     timeout=30,
+                    verify='config/yang.pem'
                 )
                 if retry_response.status_code == 200:
                     print(f"ntfy第 {actual_batch_num}/{total_batches} 批次重试成功 [{report_type}]")
